@@ -4,9 +4,62 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     min-height: 100vh;
+    font-family: 'Montserrat';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+a {
+  transition: all 0.3s;
+}
+
+a:hover {
+  @apply text-quinary;
+}
+
+a.logo {
+  @apply text-quaternary;
+}
+
+@media (min-width: 640px) {
+  .custom-container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .custom-container {
+    max-width: 1440px;
+  }
+}
+
+/* @media (min-width: 1640px) {
+  .custom-container {
+    max-width: 1640px;
+  }
+} */
