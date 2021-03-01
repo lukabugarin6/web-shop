@@ -3,6 +3,7 @@ import data from "./data";
 import CustomContainer from "./components/CustomContainer";
 
 import { TiShoppingCart } from "react-icons/ti";
+import { BsStarFill } from 'react-icons/bs';
 
 function App() {
   console.log(data);
@@ -15,11 +16,11 @@ function App() {
               Dsaewqe ertrge
             </a>
             <div className="flex gap-x-8 text-xl ">
-              <a href="" className="text-3xl">
+              <a href="/cart" className="text-3xl">
                 
                 <TiShoppingCart />
               </a>
-              <a href="" className="text-lg">     
+              <a href="/sign-in" className="text-lg">     
                 Sign in
               </a>
             </div>
@@ -32,8 +33,17 @@ function App() {
                 return (
                   <div key={product._id} className='col-span-2'>
                     <a href={`/product/${product._id}`}>
-                        <div className=''>
-                          <img className='h-full w-full' src={product.image} alt={product.name} />
+                        <div className='h-56'>
+                          <img className='h-full w-full object-cover' src={product.image} alt={product.name} />
+                        </div>
+                        <div className="p-2 text-center flex flex-col gap-y-2">
+                          <h2 className='text-base font-medium'>{product.name}</h2>
+                          <h3 className='text-sm'>{product.author}</h3>
+                          <p className='text-sm'> {product.price},00 RSD</p>
+                          <div className='flex justify-center'>
+
+                          <BsStarFill /><BsStarFill /><BsStarFill /><BsStarFill /><BsStarFill />
+                          </div>
                         </div>
                     </a>
                   </div>
