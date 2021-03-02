@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter  , Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import CustomContainer from "./components/CustomContainer";
