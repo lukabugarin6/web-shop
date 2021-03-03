@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 import MessageBox from "../components/MessageBox";
 
@@ -27,6 +27,7 @@ const CartScreen = (props) => {
 
   const removeFromCartHandler = (id) => {
     // delete
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
@@ -43,10 +44,10 @@ const CartScreen = (props) => {
           </MessageBox>
         ) : (
           <ul>
-            <li className='flex justify-between gap-x-12 font-bold rounded-t-3xl h-16 items-center text-primary border-b-1 border-secondary'>
+            <li className='flex justify-between gap-x-10 font-bold h-16 items-center text-primary border-b-1 border-secondary'>
               <div className='w-16 pl-6'></div>
               <div className='flex-grow ml-8'>Ime</div>
-              <div className='mr-12'>Cena</div>
+              <div className='mr-8'>Cena</div>
               <div>Kolicina</div>
               <div className='pr-4'>Obrisi</div>
             </li>
@@ -61,11 +62,11 @@ const CartScreen = (props) => {
                         className="w-full"
                       />
                     </div>
-                    <div className="flex-grow text-quaternary text-lg font-medium transition-all duration-300 hover:text-quinary">
+                    <div className="flex-grow text-quaternary font-medium transition-all duration-300 hover:text-quinary">
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
                     </div>
-                    <div className="text-base">{item.price}.00 RSD</div>
-                    <div className='text-sm'>{item.qty}</div>
+                    <div className="text-sm">{item.price}.00 RSD</div>
+                    <div className='text-xs'>{item.qty}</div>
                     <div className="text-quaternary text-2xl pr-6">
                       <button
                         type="button"
