@@ -15,7 +15,7 @@ const Navbar = () => {
       <header className="text-quaternary">
         <CustomContainer className="flex justify-between flex-wrap items-center h-16">
           <Link to="/" className="text-3xl text-quaternary logo font-bold">
-            Polovne<span className='text-quinary'>Knjige</span>
+            {/* Polovne<span className='text-quinary'>Knjige</span> */}
           </Link>
           <div className="flex gap-x-12 text-xl ">
             <Link to="/cart" className="text-3xl hover:text-quinary">

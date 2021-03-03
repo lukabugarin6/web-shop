@@ -14,6 +14,9 @@ module.exports = {
         'quaternary' : '#557A95',
         'quinary' : '#B1A296',
       },
+      borderWidth: {
+        '1': '1px'
+      }
     },
   },
   variants: {

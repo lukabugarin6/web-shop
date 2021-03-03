@@ -93,7 +93,7 @@ const ProductScreen = (props) => {
             <div>Cena : {product.price}.00 RSD</div>
             {product.countInStock > 0 && (
               <div className="flex items-center gap-x-20">
-                <button className="inline-flex justify-center items-center gap-x-1 transition-all duration-300 bg-tertiary w-40 p-2.5 rounded-lg text-white hover:bg-quinary" onClick={addToCartHandler}>
+                <button className="inline-flex justify-center items-center gap-x-1 transition-all duration-300 bg-quaternary w-40 p-2.5 rounded-lg text-white hover:bg-quinary" onClick={addToCartHandler}>
                   Dodaj u korpu
                   <span className="text-xl">
                     <TiShoppingCart />
