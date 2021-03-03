@@ -1,7 +1,22 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+  users: [
+    {
+      name: 'Luka',
+      email:'lukabugarin6@gmail.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: true
+    },
+    {
+      name: 'Jhon',
+      email:'johndoe@gmail.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: false
+    }
+  ],
   products: [
     {
-      _id: "1",
       author: "E. M. Forster",
       name: "Put u Indiju",
       categories: ["istorijski", "drama", "filmovane knjige"],
@@ -14,7 +29,6 @@ const data = {
       countInStock: 2682,
     },
     {
-      _id: "2",
       author: "Bet O’Liri",
       name: "Zajedno u stanu",
       categories: ["ljubavni", "ciklit", "e-knjige"],
@@ -27,7 +41,6 @@ const data = {
       countInStock: 2682,
     },
     {
-      _id: "3",
       author: "Sara Hejvud",
       name: "Kaktus",
       categories: ["ljubavni", "e-knjige"],
@@ -40,7 +53,6 @@ const data = {
       countInStock: 2682,
     },
     {
-      _id: "4",
       author: "Vuk Drašković",
       name: "Aleksandar od Jugoslavije - ćirilica",
       categories: ["istorijski", "drama", "filmovane knjige"],
@@ -53,7 +65,6 @@ const data = {
       countInStock: 2682,
     },
     {
-      _id: "5",
       author: "Meri Bird",
       name: "SPQR: Istorija starog Rima",
       categories: ["publicistika", "e-knjige", "istorija"],
@@ -66,7 +77,6 @@ const data = {
       countInStock: 2682,
     },
     {
-      _id: "6",
       author: "Trejsi Ševalije",
       name: "Devojka sa bisernom minđušom",
       categories: ["istorijski", "drama", "filmovane knjige"],

@@ -26,7 +26,6 @@ const CartScreen = (props) => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    // delete
     dispatch(removeFromCart(id));
   };
 
@@ -37,7 +36,6 @@ const CartScreen = (props) => {
   return (
     <div className="grid grid-cols-12 text-primary">
       <div className="col-span-8">
-        {/* <h1>Shopping Cart</h1> */}
         {cartItems.length === 0 ? (
           <MessageBox>
             Cart is empty. <Link to="/">Go Shopping</Link>
@@ -53,7 +51,7 @@ const CartScreen = (props) => {
             </li>
             {cartItems.map((item) => {
               return (
-                <li key={item.product} className="py-4 border-b-1 border-secondary">
+                <li key={item.product} className="py-4">
                   <div className="flex justify-between items-center gap-x-20">
                     <div className="w-16 pl-6">
                       <img
