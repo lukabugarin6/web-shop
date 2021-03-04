@@ -6,6 +6,7 @@ import CustomContainer from "./components/CustomContainer";
 import ProductScreen from "./screens/ProductScreen";
 import HomeScreen from "./screens/HomeScreen";
 import CartScreen from "./screens/CartScreen";
+import SignInScreen from "./screens/SignInScreen";
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
           <Navbar />
           <main className="py-24">
             <CustomContainer>
-              <Route path="/cart/:id?" component={CartScreen}></Route>
+              <Route path="/signin" component={SignInScreen}></Route>
               <Route path="/product/:id" component={ProductScreen}></Route>
               <Route path="/" component={HomeScreen} exact></Route>
+              <Route path="/cart/:id?" component={CartScreen}></Route>
             </CustomContainer>
           </main>
         </div>
