@@ -24,7 +24,7 @@ const SignInScreen = () => {
             type="email"
             id="email"
             className="border-1 border-secondary flex-grow pl-4 py-2 "
-            placeholder="Enter email"
+            placeholder="Unesite email"
             required
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -35,7 +35,7 @@ const SignInScreen = () => {
             type="password"
             id="password"
             className="border-1 border-secondary flex-grow pl-4 py-2 "
-            placeholder="Enter password"
+            placeholder="Unesite sifru"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
