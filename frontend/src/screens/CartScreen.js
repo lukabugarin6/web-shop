@@ -65,7 +65,7 @@ const CartScreen = (props) => {
                     </div>
                     <div className="text-sm">{item.price}.00 RSD</div>
                     <div className='text-xs'>{item.qty}</div>
-                    <div className="text-quaternary text-2xl pr-6">
+                    <div className="text-quaternary text-xl pr-8">
                       <button
                         type="button"
                         className='transition-all duration-300 hover:text-quinary'
@@ -85,7 +85,7 @@ const CartScreen = (props) => {
         <div className='pt-4'>
           <ul className='text-center h-40 flex flex-col justify-around rounded-lg border-1 border-secondary'>
             <li>
-              <h2 className='text font-medium'>
+              <h2 className='text font-semibold'>
                 Ukupno ( {cartItems.reduce((a, c) => a + c.qty, 0)} ) : {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}.00 RSD
               </h2>
             </li>
