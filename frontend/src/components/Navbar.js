@@ -53,7 +53,7 @@ const Navbar = () => {
                   <span className='absolute bg-quaternary w-5 h-4 triangle -top-3.5 -right-2.5'></span>
                 </div>
                 <Link to="#signout" className='hover:text-gray-300' onClick={signoutHandler}>
-                  Izloguj Se
+                  Izloguj se
                 </Link>
               </ul>
             </div>
