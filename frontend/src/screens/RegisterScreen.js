@@ -40,7 +40,7 @@ const RegisterScreen = (props) => {
     <div>
       <form
         onSubmit={submitHandler}
-        className="w-1/3 mx-auto flex flex-col gap-y-6 py-8 pb-4 px-12 justify-start border-1 border-secondary rounded-2xl"
+        className="w-1/3 mx-auto flex flex-col gap-y-6 py-8 pb-4 px-12 justify-start bg-gray-100 border-secondary rounded-2xl"
       >
         <div>
           <h1 className="text-4xl font-medium">Registruj Se</h1>

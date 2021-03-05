@@ -41,7 +41,7 @@ const CartScreen = (props) => {
             Cart is empty. <Link to="/">Go Shopping</Link>
           </MessageBox>
         ) : (
-          <ul>
+          <ul className=''>
             <li className='flex justify-between gap-x-10 font-bold h-16 items-center text-primary border-b-1 border-secondary'>
               <div className='w-16 pl-6'></div>
               <div className='flex-grow ml-8'>Ime</div>
@@ -83,7 +83,7 @@ const CartScreen = (props) => {
       </div>
       <div className="col-span-4 ml-12">
         <div className='pt-4'>
-          <ul className='text-center h-40 flex flex-col justify-around rounded-lg border-1 border-secondary'>
+          <ul className='text-center h-40 flex flex-col justify-around rounded-lg bg-gray-100 border-secondary'>
             <li>
               <h2 className='text font-semibold'>
                 Ukupno ( {cartItems.reduce((a, c) => a + c.qty, 0)} ) : {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}.00 RSD

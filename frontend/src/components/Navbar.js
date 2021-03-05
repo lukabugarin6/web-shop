@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="relative">
               <TiShoppingCart />{" "}
               {cartItems.length > 0 && (
-                <span className=" text-xs bg-quaternary py-0.5 px-1.5 rounded-full text-white absolute -right-4 top-2">
+                <span className=" text-xs bg-quaternary w-5 h-5 inline-flex justify-center items-center rounded-full text-white absolute -right-4 top-2">
                   {cartItems.length}
                 </span>
               )}
