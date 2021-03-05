@@ -32,7 +32,7 @@ userRouter.post(
         return;
       }
     }
-    res.status(401).send({message: 'Invalid email or password'});
+    res.status(401).send({message: 'Neispravan email ili sifra'});
   })
 );
 

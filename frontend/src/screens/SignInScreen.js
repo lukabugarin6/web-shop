@@ -1,14 +1,34 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { signin } from "../actions/userActions";
+import Loading from '../components/Loading';
+import MessageBox from '../components/MessageBox';
 
-const SignInScreen = () => {
+const SignInScreen = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const redirect = props.location.search
+    ? props.location.search.split("=")[1]
+    : "/";
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo, loading, error } = userSignin;
+
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    // todo : sign in
+    dispatch(signin(email, password));
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
+    }
+  }, [userInfo, props.history, redirect]);
+
   return (
     <div>
       <form
@@ -18,8 +38,12 @@ const SignInScreen = () => {
         <div>
           <h1 className="text-4xl font-medium">Uloguj Se</h1>
         </div>
+        {loading && <Loading />}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div className="flex flex-col gap-y-1">
-          <label className='text-lg ' htmlFor="email">Email adresa </label>
+          <label className="text-lg " htmlFor="email">
+            Email adresa{" "}
+          </label>
           <input
             type="email"
             id="email"
@@ -30,11 +54,13 @@ const SignInScreen = () => {
           />
         </div>
         <div className="flex flex-col gap-y-1">
-          <label className='text-lg' htmlFor="email">Sifra</label>
+          <label className="text-lg" htmlFor="email">
+            Sifra
+          </label>
           <input
             type="password"
             id="password"
-            className="border-1 border-secondary flex-grow pl-4 py-2 "
+            className="border-1 border-secondary flex-grow pl-4 py-2 placeholder-"
             placeholder="Unesite sifru"
             required
             onChange={(e) => setPassword(e.target.value)}

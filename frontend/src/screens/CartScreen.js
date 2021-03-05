@@ -90,7 +90,7 @@ const CartScreen = (props) => {
               </h2>
             </li>
             <li>
-              <button type='button' onClick={checkoutHandler} className='transition-all duration-300 bg-quaternary w-56 p-2.5 rounded-lg text-white hover:bg-quinary' disabled={cartItems.length === 0}>Proceed to Checkout</button>
+              <button type='button' onClick={checkoutHandler} className='transition-all duration-300 bg-quaternary w-56 p-2.5 rounded-lg text-white hover:bg-quinary' >Proceed to Checkout</button>
             </li>
           </ul>
         </div>
