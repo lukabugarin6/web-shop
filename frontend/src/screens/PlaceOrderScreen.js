@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CheckoutSteps from "../components/CheckoutSteps";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
+import { createOrder } from "../actions/orderActions";
+import { ORDER_CREATE_RESET } from "../constants/orderConstants";
+import Loading from '../components/Loading'
+import MessageBox from '../components/MessageBox'
 
 const PlaceOrderScreen = (props) => {
   const cart = useSelector((state) => state.cart);
   if (!cart.paymentMethod) {
     props.history.push("/payment");
   }
-
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
   const toPrice = (num) => Number(num.toFixed(2));
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
@@ -18,9 +23,18 @@ const PlaceOrderScreen = (props) => {
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
+  const dispatch = useDispatch();
+
   const placeOrderHandler = () => {
-    // to do dispatch
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
+
+  useEffect(() => {
+    if (success) {
+      props.history.push(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
+    }
+  }, [dispatch, order, props.history, success]);
 
   return (
     <div>
@@ -84,9 +98,9 @@ const PlaceOrderScreen = (props) => {
           </ul>
         </div>
         <div className="col-span-4 ml-12">
-          <div className=''>
-            <ul className='flex gap-y-3 flex-col justify-around rounded-lg bg-gray-100 border-secondary px-10 py-6'>
-              <li className='text-xl font-semibold mb-4'>
+          <div className="">
+            <ul className="flex gap-y-3 flex-col justify-around rounded-lg bg-gray-100 border-secondary px-10 py-6">
+              <li className="text-xl font-semibold mb-4">
                 <h2>Ukupno Za Plaćanje</h2>
               </li>
               <li>
@@ -107,24 +121,33 @@ const PlaceOrderScreen = (props) => {
                   <div>{cart.taxPrice.toFixed(2)} RSD</div>
                 </div>
               </li>
-              <li>       <div
-              className="w-full bg-secondary"
-              style={{ height: "1px" }}
-            ></div></li>
+              <li>
+                {" "}
+                <div
+                  className="w-full bg-secondary"
+                  style={{ height: "1px" }}
+                ></div>
+              </li>
               <li className="font-semibold">
                 <div className="flex justify-center items-center justify-between">
                   <div>Ukupno</div>
                   <div>{cart.totalPrice.toFixed(2)} RSD</div>
                 </div>
               </li>
-              <li className='text-center mt-4'>
+              <li className="text-center mt-4">
                 <button
                   type="button"
                   className="transition-all duration-300 bg-quaternary text-sm p-2.5 rounded-lg text-white hover:bg-quinary"
                   onClick={placeOrderHandler}
                   disabled={cart.cartItems.length === 0}
-                >Potvrdi narudzbu</button>
+                >
+                  Potvrdi narudzbu
+                </button>
               </li>
+              {
+                loading && <Loading />
+              }
+              {error && <MessageBox variant="danger">{error}</MessageBox>}
             </ul>
           </div>
         </div>
