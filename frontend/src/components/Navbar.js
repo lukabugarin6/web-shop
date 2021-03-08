@@ -49,12 +49,15 @@ const Navbar = () => {
                   </div>
                 </Link>
                 <ul
-                  className="transition-all duration-500 dropdown-content absolute bg-quaternary text-white text-sm m-0 px-3 py-3 mt-1 rounded-sm"
+                  className="transition-all duration-500 dropdown-content absolute bg-quaternary text-white text-sm m-0 px-3 py-2 mt-1 rounded-sm"
                   style={{ minWidth: "10rem" }}
                 >
                   <div className="relative w-full h-full">
                     <span className="absolute bg-quaternary w-5 h-4 triangle -top-3.5 -right-2.5"></span>
                   </div>
+                  <li>
+                    <Link to="/profile"  className="hover:text-gray-300">Profil</Link>
+                  </li>
                   <li>
                     <Link to="/orderhistory"  className="hover:text-gray-300">Istorija Porudzbina</Link>
                   </li>

@@ -25,16 +25,17 @@ const OrderHistoryScreen = (props) => {
           <thead>
             <tr className='border-b-1 border-secondary'>
               <th className='text-left py-2 text-sm'>ID</th>
-              <th className='text-left py-2'>Datum</th>
-              <th className='text-left py-2'>Ukupno</th>
-              <th className='text-left py-2'>Placeno</th>
+              <th className='text-left py-2 text-sm'>Datum</th>
+              <th className='text-left py-2 text-sm'>Ukupno</th>
+              <th className='text-left py-2 text-sm'>Placeno</th>
               <th className='text-left py-2'>Dostavljeno</th>
               <th className='text-left py-2'>Upravljanje</th>
             </tr>
           </thead>
           <tbody>
             {orders &&
-              orders.map((order) => {
+              orders.map((order, index) => {
+                const odd = index 
                 return (
                   <tr key={order._id}>
                     <td className='py-2'>{order._id}</td>
